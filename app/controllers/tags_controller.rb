@@ -5,7 +5,7 @@ class TagsController < ApplicationController
 	end
 
 	def index
-		@tag = Tag.all
+		@tags = Tag.all
 	end
 
 	def create
@@ -15,6 +15,13 @@ class TagsController < ApplicationController
   	@tag.save
 
   	redirect_to tag_path(@tag)
+	end
+
+	def destroy
+		@tag = Tag.find(params[:id])
+		@tag.destroy
+		flash.notice = "Tag '#{@tag.name}' Deleted!"
+		redirect_to root_path
 	end
 
 	def tag_params
