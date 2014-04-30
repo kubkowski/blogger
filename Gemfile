@@ -56,3 +56,4 @@ end
 # Additional gems
 
 gem "paperclip"
+gem "sorcery"
